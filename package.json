@@ -1,0 +1,25 @@
+{
+  "name": "chat-x",
+  "version": "1.0.0",
+  "description": "chat web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanegiuly/chatX.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "jordane giuly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanegiuly/chatX/issues"
+  },
+  "homepage": "https://github.com/jordanegiuly/chatX#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

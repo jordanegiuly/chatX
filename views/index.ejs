@@ -32,9 +32,9 @@
         </div>
         <div class="panel-footer">
           <div class="input-group">
-          <input id="roomNameInput" name="roomName" type="text" class="form-control" placeholder="Enter Room name" />
+          <input id="roomNameInput" name="roomName" type="text" class="form-control" placeholder="Type Room name" />
             <span class="input-group-btn">
-              <button class="btn btn-info" type="button" onClick="postRoom()">JOIN</button>
+              <button class="btn btn-info" type="button" onClick="joinRoom()">JOIN</button>
             </span>
           </div>
         </div>
@@ -42,18 +42,18 @@
     </div>
     <div class="col-md-6">
       <div class="panel panel-info">
-        <div class="panel-heading" id="postListTitle">
+        <div class="panel-heading" id="messageListTitle">
           Please select a room
         </div>
         <div class="panel-body">
-          <ul class="media-list" id="postList">
+          <ul class="media-list" id="messageList">
           </ul>
         </div>
         <div class="panel-footer">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter Message" />
+            <input id="messageContentInput" type="text" class="form-control" placeholder="Type Message" />
             <span class="input-group-btn">
-              <button class="btn btn-info" type="button">SEND</button>
+              <button class="btn btn-info" type="button" onClick="writeMessage()">SEND</button>
             </span>
           </div>
         </div>
@@ -132,5 +132,6 @@
     socket.emit('login', user.login);
   </script>
   <script src="/js/rooms.js"></script>
+  <script src="/js/messages.js"></script>
 </body>
 </html>

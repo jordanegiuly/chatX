@@ -8,23 +8,23 @@ $( document ).ready(function() {
 });
 
 function getRoom(roomId) {
-    $('#postList').html('');
+    $('#messageList').html('');
     $.get('/rooms/' + roomId, function(room) {
         console.log('GET /rooms/' + roomId, room);
-        $('#postListTitle').html('RECENT CHAT HISTORY FOR ROOM ' + room.name);
-        $.get('/posts', { roomId: roomId }, function(posts) {
-            console.log('GET /posts?roomId=' + roomId, posts);
-            for(var i = 0; i < posts.length; i++) {
-                var postPartial = new EJS({url: 'partials/post.ejs'}).render({post: posts[i]});
-                $('#postList').append(postPartial);
+        $('#messageListTitle').html('RECENT CHAT HISTORY FOR ROOM ' + room.name);
+        $.get('/messages', { roomId: roomId }, function(messages) {
+            console.log('GET /messages?roomId=' + roomId, messages);
+            for(var i = 0; i < messages.length; i++) {
+                var messagePartial = new EJS({url: 'partials/message.ejs'}).render({message: messages[i]});
+                $('#messageList').append(messagePartial);
             }
         });
     });
 };
 
-function postRoom() {
+function joinRoom() {
     var roomName = $('#roomNameInput').val();
-    console.log('postRoom', roomName);
+    console.log('joinRoom', roomName);
 
     $.ajax({
         type: "POST",

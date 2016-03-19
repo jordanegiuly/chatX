@@ -7,9 +7,9 @@
         <img class="media-object img-circle " src="assets/img/user.png" />
       </a>
       <div class="media-body" >
-        <%= post.content %>
+        <%= message.content %>
         <br />
-        <small class="text-muted">Alex Deo | 23rd June at 5:00pm</small>
+        <small class="text-muted"><%= message.authorId %> | <%= message.timestamp %></small>
         <hr />
       </div>
     </div>

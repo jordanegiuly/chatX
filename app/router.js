@@ -1,5 +1,4 @@
 var express = require('express');
-var _ = require('lodash');
 
 module.exports = function(passport) {
     var router = express.Router();

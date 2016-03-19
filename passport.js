@@ -12,10 +12,9 @@ passport.deserializeUser(function(login, done) {
 
 passport.use('local-login', new LocalStrategy({
     usernameField : 'login',
-    passwordField : 'login',
+    passwordField : 'login', // trick to handle form with no password
     passReqToCallback : true
 }, function(req, login, password, done) {
-    console.log("local-login");
     var user = User.find(login);
     if (user) {
         console.log('found user', user);

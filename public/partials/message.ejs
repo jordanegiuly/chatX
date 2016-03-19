@@ -4,12 +4,12 @@
 
     <div class="media">
       <a class="pull-left" href="#">
-        <img class="media-object img-circle " src="assets/img/user.png" />
+        <img class="media-object img-circle " src="/img/avatars/<%= message.authorAvatar %>" />
       </a>
       <div class="media-body" >
         <%= message.content %>
         <br />
-        <small class="text-muted"><%= message.authorId %> | <%= message.timestamp %></small>
+        <small class="text-muted"><%= message.authorLogin %> | <%= message.timestamp %></small>
         <hr />
       </div>
     </div>

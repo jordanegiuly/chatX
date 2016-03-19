@@ -1,4 +1,16 @@
+$("#messageContentInput").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        writeMessage();
+    }
+});
+
 function writeMessage() {
+    console.log('currentRoom', currentRoom, $('#messageContentInput').val());
+    if (!currentRoom || !$('#messageContentInput').val()) {
+        return;
+    }
+
     var messageContent = $('#messageContentInput').val();
     $.ajax({
         type: "POST",

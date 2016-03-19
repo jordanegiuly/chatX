@@ -1,0 +1,91 @@
+.navbar-default {
+    background-color: #C2185B;
+    border-color: #C2185B;
+}
+
+.navbar-default .navbar-text {
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: #F8BBD0;
+}
+
+.navbar-default .navbar-link {
+    color: #F8BBD0;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover:hover {
+    color: #FCE4EC;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-link:hover {
+    color: #FCE4EC;
+    text-decoration: none;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #D81B60;
+    border-color: #D81B60;
+}
+
+.panel-primary {
+    border-color: #D81B60;
+}
+
+.panel-info>.panel-heading {
+    color: #fff;
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+.panel-info {
+    border-color: #EC407A;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #E91E63;
+    border-color: #E91E63;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+a {
+    color: #E91E63;
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: #EC407A;
+    text-decoration: underline;
+}
+
+.btn-info.active, .btn-info:active {
+    color: #fff;
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+.btn-info.focus, .btn-info:focus {
+    color: #fff;
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+.btn-info.active.focus, .btn-info.active:focus, .btn-info.active:hover, .btn-info:active.focus, .btn-info:active:focus, .btn-info:active:hover, .open>.dropdown-toggle.btn-info.focus, .open>.dropdown-toggle.btn-info:focus, .open>.dropdown-toggle.btn-info:hover {
+    color: #fff;
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+.btn-info.disabled.focus, .btn-info.disabled:focus, .btn-info.disabled:hover, .btn-info[disabled].focus, .btn-info[disabled]:focus, .btn-info[disabled]:hover, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info:hover {
+    background-color: #EC407A;
+    border-color: #EC407A;
+}

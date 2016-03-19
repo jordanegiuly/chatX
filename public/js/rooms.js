@@ -9,7 +9,12 @@ $( document ).ready(function() {
     });
 });
 
-console.log('currentUser', currentUser);
+$("#roomNameInput").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        joinRoom();
+    }
+});
 
 function getRoom(roomId) {
     $('#messageList').html('');
@@ -54,6 +59,9 @@ function getRoom(roomId) {
 };
 
 function joinRoom() {
+    if (!$('#roomNameInput').val()) {
+        return;
+    }
     var roomName = $('#roomNameInput').val();
     console.log('joinRoom', roomName);
 

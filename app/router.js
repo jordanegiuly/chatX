@@ -15,12 +15,6 @@ module.exports = function(passport) {
         failureFlash : false
     }));
 
-    // router.post('/signup', passport.authenticate('local-signup', {
-    //     successRedirect : '/',
-    //     failureRedirect : '/login',
-    //     failureFlash : false
-    // }));
-
     router.get('/', isLoggedIn, function(req, res){
         res.render('index.ejs', {
             user : req.user

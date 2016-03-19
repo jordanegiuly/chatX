@@ -11,5 +11,8 @@ module.exports = function(io) {
         socket.on('create room', function(room){
             io.emit('create room', room);
         });
+        socket.on('new message', function(message){
+            io.emit('new message', message);
+        });
     }
 };

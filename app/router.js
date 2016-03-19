@@ -29,16 +29,8 @@ module.exports = function(passport) {
 
     modelsRouter.use(isLoggedIn);
     router.use(require('./routes/rooms.js')(modelsRouter));
-    // router.use(require('./routes/posts.js')(modelsRouter));
+    router.use(require('./routes/messages.js')(modelsRouter));
     // router.use(require('./routes/users.js')(modelsRouter));
-
-    router.get('/posts', isLoggedIn, function(req, res) {
-        var _posts = _.filter(posts, function(post) {
-            return post.roomId === parseInt(req.query.roomId);
-        });
-        console.log('GET /posts', req.query, _posts);
-        res.json(_posts);
-    });
 
     return router;
 };
@@ -62,36 +54,5 @@ var users = [
         id: 2,
         login: "second",
         avatar: ""
-    }
-];
-
-var posts = [
-    {
-        id: 1,
-        authorId: 1,
-        roomId: 1,
-        content: "Hey there!",
-        timestamp: ""
-    },
-    {
-        id: 2,
-        authorId: 1,
-        roomId: 1,
-        content: "Wassup?",
-        timestamp: ""
-    },
-    {
-        id: 3,
-        authorId: 2,
-        roomId: 1,
-        content: "I'm here.",
-        timestamp: ""
-    },
-    {
-        id: 4,
-        authorId: 2,
-        roomId: 2,
-        content: "I'm all alone",
-        timestamp: ""
     }
 ];

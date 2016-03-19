@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 require('./passport.js')(passport);
 var session = require('express-session');
+var _ = require('lodash');
 
 var app = express();
 var path = require('path');
@@ -47,6 +48,9 @@ io.on('connection', function(socket){
     socket.on('login', function(user){
         console.log('User', user, 'logged in');
     });
+    socket.on('create room', function(room){
+        io.emit('create room', room);
+    });
 });
 
 http.listen(app.get('port'), function(){
@@ -59,3 +63,83 @@ function isLoggedIn(req, res, next) {
     }
     res.redirect('/login');
 }
+
+app.get('/rooms', isLoggedIn, function(req, res) {
+    res.json(rooms);
+});
+
+app.get('/rooms/:id', isLoggedIn, function(req, res) {
+    var room = _.find(rooms, function(room) {
+        console.log(room.id);
+        return room.id === parseInt(req.params.id);
+    });
+    console.log('/rooms/', req.params.id, room);
+    res.json(room);
+});
+
+app.get('/posts', isLoggedIn, function(req, res) {
+    console.log(req.query);
+    var _posts = _.filter(posts, function(post) {
+        return post.roomId === parseInt(req.query.roomId);
+    });
+    res.json(_posts);
+});
+
+// fake data
+
+var users = [
+    {
+        id: 1,
+        login: "first",
+        avatar: ""
+    },
+    {
+        id: 2,
+        login: "second",
+        avatar: ""
+    }
+];
+
+var rooms = [
+    {
+        id: 1,
+        name: "first Room",
+        adminId: 1
+    },
+    {
+        id: 2,
+        name: "second Room",
+        adminId: 2
+    }
+];
+
+var posts = [
+    {
+        id: 1,
+        authorId: 1,
+        roomId: 1,
+        content: "Hey there!",
+        timestamp: ""
+    },
+    {
+        id: 2,
+        authorId: 1,
+        roomId: 1,
+        content: "Wassup?",
+        timestamp: ""
+    },
+    {
+        id: 3,
+        authorId: 2,
+        roomId: 1,
+        content: "I'm here.",
+        timestamp: ""
+    },
+    {
+        id: 4,
+        authorId: 2,
+        roomId: 2,
+        content: "I'm all alone",
+        timestamp: ""
+    }
+];

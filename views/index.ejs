@@ -14,7 +14,7 @@
           <a class="navbar-brand" href="#">Chat'X</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-          <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">John Doe</a>
+          <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= user.login %></a>
           </p>
         </div>
       </div>
@@ -25,6 +25,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io();
+      var user = <%- JSON.stringify(user) %>;
+      socket.emit('login', user.login);
     </script>
   </body>
 </html>

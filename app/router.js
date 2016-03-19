@@ -30,7 +30,7 @@ module.exports = function(passport) {
     modelsRouter.use(isLoggedIn);
     router.use(require('./routes/rooms.js')(modelsRouter));
     router.use(require('./routes/messages.js')(modelsRouter));
-    // router.use(require('./routes/users.js')(modelsRouter));
+    router.use(require('./routes/users.js')(modelsRouter));
 
     return router;
 };
@@ -41,18 +41,3 @@ function isLoggedIn(req, res, next) {
     }
     res.redirect('/login');
 }
-
-// fake data
-
-var users = [
-    {
-        id: 1,
-        login: "first",
-        avatar: ""
-    },
-    {
-        id: 2,
-        login: "second",
-        avatar: ""
-    }
-];

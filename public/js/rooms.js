@@ -29,7 +29,7 @@ function getRoom(roomId) {
         socket.emit('join room', {roomId: roomId, user: currentUser});
 
         console.log('GET /rooms/' + roomId, room);
-        $('#messageListTitle').html('RECENT CHAT HISTORY FOR ROOM ' + room.name);
+        $('#messageListTitle').html('MESSAGES IN ROOM ' + room.name);
         $.get('/messages', { roomId: roomId }, function(messages) {
             console.log('GET /messages?roomId=' + roomId, messages);
             for(var i = 0; i < messages.length; i++) {
@@ -56,7 +56,7 @@ function getRoom(roomId) {
             }
         });
     });
-};
+}
 
 function joinRoom() {
     if (!$('#roomNameInput').val()) {
@@ -80,6 +80,11 @@ function joinRoom() {
         return room;
       }
     });
+}
+
+function appendRoom(room) {
+    var roomPartial = new EJS({url: 'partials/room.ejs'}).render({room: room});
+    $('#roomList').append(roomPartial);
 }
 
 socket.on('create room', function(room){
@@ -106,8 +111,3 @@ socket.on('leave room', function(params){
         $('#user-' + user.id).remove();
     };
 });
-
-function appendRoom(room) {
-    var roomPartial = new EJS({url: 'partials/room.ejs'}).render({room: room});
-    $('#roomList').append(roomPartial);
-}

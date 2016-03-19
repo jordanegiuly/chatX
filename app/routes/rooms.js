@@ -59,12 +59,12 @@ module.exports = function(router) {
 var rooms = [
     {
         id: '1',
-        name: "first Room",
+        name: "Bois de Boulogne",
         adminId: '1'
     },
     {
         id: '2',
-        name: "second Room",
+        name: "Amsterdam",
         adminId: '2'
     }
 ];

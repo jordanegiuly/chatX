@@ -89,3 +89,7 @@ a:focus, a:hover {
     background-color: #EC407A;
     border-color: #EC407A;
 }
+
+.media-object {
+    max-height: 60px;
+}

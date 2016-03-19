@@ -17,7 +17,7 @@ function create(login) {
     var newUser = {
         id: shortid.generate(),
         login: login,
-        avatar: '',
+        avatar: Math.floor(Math.random() * 10) + '.jpg',
         currentRoomId: ''
     };
     fakeData.push(newUser);
@@ -48,14 +48,14 @@ function index() {
 var fakeData = [
     {
         id: '1',
-        login: 'first',
-        avatar: '',
+        login: 'Tina',
+        avatar: '1.jpg',
         currentRoomId: '1'
     },
     {
         id: '2',
-        login: 'second',
-        avatar: '',
+        login: 'Pamela',
+        avatar: '2.jpg',
         currentRoomId: '2'
     }
 ];

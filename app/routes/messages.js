@@ -19,7 +19,8 @@ module.exports = function(router) {
             id: shortid.generate(),
             content: params.messageContent,
             roomId: params.roomId,
-            authorId: req.user.login, // TODO
+            authorLogin: req.user.login,
+            authorAvatar: req.user.avatar,
             timestamp: new Date()
         }
         messages.push(newMessage);
@@ -33,30 +34,34 @@ module.exports = function(router) {
 var messages = [
     {
         id: '1',
-        authorId: '1',
+        authorLogin: 'Tina',
+        authorAvatar: '1.jpg',
         roomId: '1',
-        content: "Hey there!",
-        timestamp: ""
+        content: "Hey there...",
+        timestamp: "2016-03-19T18:03:31.351Z"
     },
     {
         id: '2',
-        authorId: '1',
+        authorLogin: 'Tina',
+        authorAvatar: '1.jpg',
         roomId: '1',
-        content: "Wassup?",
-        timestamp: ""
+        content: "How are you?",
+        timestamp: "2016-03-19T18:05:31.351Z"
     },
     {
         id: '3',
-        authorId: '2',
+        authorLogin: 'Pamela',
+        authorAvatar: '2.jpg',
         roomId: '1',
-        content: "I'm here.",
-        timestamp: ""
+        content: "Not too bad...",
+        timestamp: "2016-03-19T18:06:31.351Z"
     },
     {
         id: '4',
-        authorId: '2',
+        authorLogin: 'Pamela',
+        authorAvatar: '2.jpg',
         roomId: '2',
-        content: "I'm all alone",
-        timestamp: ""
+        content: "I'm all alone in here",
+        timestamp: "2016-03-19T18:04:31.351Z"
     }
 ];

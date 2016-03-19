@@ -7,3 +7,6 @@ Run `npm install`
 ## Launch
 `npm start`
 Visit app on `localhost:3000`
+
+## Run tests
+`npm test`
